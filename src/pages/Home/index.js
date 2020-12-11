@@ -1,10 +1,12 @@
 import Grid from "@material-ui/core/Grid"
+import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
-import Paper from '@material-ui/core/Paper'
 
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
+
+import Cartao from './Cartao'
 
 function Home() {
   return (
@@ -35,6 +37,9 @@ function Home() {
     <Typography variant='h6' style={{marginTop: 30}}>
       Veículos cadastrados
     </Typography>
+    <Grid container>
+      <Cartao/>
+    </Grid>
    </> 
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, BrowserRouter, Switch} from 'react-router-dom'
 import CadastrarVeiculo from './pages/CadastrarVeiculo';
-import Home from './pages/Home/Home';
+import Home from './pages/Home/';
 import Dashboard from './layout/Dashboard'
 
 function Routes() {
