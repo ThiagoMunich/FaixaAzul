@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     transform: 'scale(0.8)',
   },
   title: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 700
   },
   pos: {
@@ -32,12 +32,18 @@ export default function Cartao() {
     <Card className={classes.root} elevation={5}>
       <CardContent>
         <Typography variant='overline' className={classes.title}>
-            Sandero
+            Renault Sandero
         </Typography>
         <Divider variant='fullWidth'/>
+        <div style={{display:'flex', alignContent:'center', justifyContent: 'space-between', padding: 5, marginTop: 10}}>
         <Typography>
             HNC 1701
         </Typography>
+        <Button variant='outlined' size='small'>
+            +2 Bonus
+        </Button>
+        </div>
+
       </CardContent>
       <CardActions>
       </CardActions>

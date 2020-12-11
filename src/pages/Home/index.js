@@ -37,7 +37,7 @@ function Home() {
     <Typography variant='h6' style={{marginTop: 30}}>
       Veículos cadastrados
     </Typography>
-    <Grid container>
+    <Grid container style={{marginTop:20}}>
       <Cartao/>
     </Grid>
    </> 
