@@ -32,6 +32,9 @@ function Home() {
         <NotificationsNoneOutlinedIcon fontSize='small'/>
       </div>
     </Paper>
+    <Typography variant='h6' style={{marginTop: 30}}>
+      Veículos cadastrados
+    </Typography>
    </> 
   );
 }
