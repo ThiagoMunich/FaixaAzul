@@ -13,12 +13,15 @@ function Home() {
     <>
     <Grid container justify='space-between' alignContent='center' alignItems='center'>
       <Grid item>
-        <Typography variant='h6'>
-          Meu saldo:
+        <div style={{display:'flex', alignContent:'center', alignItems:'center'}}>
+          
+        <Typography variant='h5' style={{marginRight:10}}>
+          Saldo:
         </Typography>
         <Typography variant='body2'>
           R$ 25,00 
         </Typography>
+        </div>
       </Grid>
       <Grid item>
         <IconButton>
@@ -34,7 +37,7 @@ function Home() {
         <NotificationsNoneOutlinedIcon fontSize='small'/>
       </div>
     </Paper>
-    <Typography variant='h6' style={{marginTop: 30}}>
+    <Typography variant='h5' style={{marginTop: 30}}>
       Veículos cadastrados
     </Typography>
     <Grid container style={{marginTop:20}}>

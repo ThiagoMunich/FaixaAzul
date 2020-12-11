@@ -1,11 +1,17 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
+
 import Card from '@material-ui/core/Card';
+
+import Divider from "@material-ui/core/Divider"
+import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Divider from "@material-ui/core/Divider"
+
+import CardGiftcardOutlinedIcon from '@material-ui/icons/CardGiftcardOutlined';
+import DirectionsCarOutlinedIcon from '@material-ui/icons/DirectionsCarOutlined';
+import { Button, IconButton } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
@@ -36,16 +42,27 @@ export default function Cartao() {
         </Typography>
         <Divider variant='fullWidth'/>
         <div style={{display:'flex', alignContent:'center', justifyContent: 'space-between', padding: 5, marginTop: 10}}>
-        <Typography>
-            HNC 1701
-        </Typography>
-        <Button variant='outlined' size='small'>
-            +2 Bonus
-        </Button>
+            <div style={{display:'flex', alignContent:'center', justifyContent: 'flex-start'}}>
+                <DirectionsCarOutlinedIcon style={{marginRight:10}}/>
+                <Typography>
+                    HNC2C28
+                </Typography>
+            </div>
+            <div style={{display:'flex', flexDirection: 'column'}}>
+                <Typography variant='caption'>
+                    +2 bonus!
+                </Typography>
+                <IconButton style={{padding:0}}>
+                    <CardGiftcardOutlinedIcon/>
+                </IconButton>
+            </div>
         </div>
 
       </CardContent>
       <CardActions>
+          <Button variant='outlined' fullWidth size='small' color='primary'>
+              Estacionar
+          </Button>
       </CardActions>
     </Card>
   );
