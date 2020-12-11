@@ -42,19 +42,17 @@ export default function Cartao() {
         </Typography>
         <Divider variant='fullWidth'/>
         <div style={{display:'flex', alignContent:'center', justifyContent: 'space-between', padding: 5, marginTop: 10}}>
-            <div style={{display:'flex', alignContent:'center', justifyContent: 'flex-start'}}>
+            <div style={{display:'flex', alignContent:'center', justifyContent: 'flex-start', marginTop: 10}}>
                 <DirectionsCarOutlinedIcon style={{marginRight:10}}/>
                 <Typography>
                     HNC2C28
                 </Typography>
             </div>
-            <div style={{display:'flex', flexDirection: 'column'}}>
+            <div style={{display:'flex', flexDirection: 'column', alignItems:'center'}}>
                 <Typography variant='caption'>
-                    +2 bonus!
+                    +2 bônus!
                 </Typography>
-                <IconButton style={{padding:0}}>
-                    <CardGiftcardOutlinedIcon/>
-                </IconButton>
+                <CardGiftcardOutlinedIcon color="secondary"/>
             </div>
         </div>
 
