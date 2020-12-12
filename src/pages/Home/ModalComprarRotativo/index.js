@@ -9,7 +9,7 @@ function ModalComprarRotativo({ abrir, fechar }) {
         <DialogTitle>
           Comprar rotativo
         </DialogTitle>
-        <form onSubmit={handleSubmit}>
+        <form>
           <DialogContent>
             Compre aqui seu rotativo
           </DialogContent>

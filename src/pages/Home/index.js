@@ -9,14 +9,21 @@ import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneO
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 
 import Cartao from './Cartao'
+import ModalComprarRotativo from './ModalComprarRotativo'
 import ModalCadastrarVeiculo from './ModalCadastrarVeiculo'
+
 
 function Home() {
 
   const [abrirCadastrarVeiculo, setAbrirCadastrarVeiculo] = useState(false)
+  const [abrirComprarRotativo, setAbrirComprarRotativo] = useState(false)
 
   const modalCadastrarVeiculo = () => {
     setAbrirCadastrarVeiculo(!abrirCadastrarVeiculo)
+  }
+
+  const modalComprarRotativo = () => {
+    setAbrirComprarRotativo(!abrirComprarRotativo)
   }
 
   return (
@@ -24,17 +31,16 @@ function Home() {
       <Grid container justify='space-between' alignContent='center' alignItems='center'>
         <Grid item>
           <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
-
             <Typography variant='h5' style={{ marginRight: 10 }}>
               Saldo:
-        </Typography>
+            </Typography>
             <Typography variant='body2'>
               R$ 25,00
-        </Typography>
+            </Typography>
           </div>
         </Grid>
         <Grid item>
-          <IconButton>
+          <IconButton onClick={modalComprarRotativo}>
             <AddShoppingCartIcon color='primary' />
           </IconButton>
         </Grid>
@@ -43,13 +49,13 @@ function Home() {
         <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'space-between' }}>
           <Typography variant='body2'>
             Você tem 1 nova mensagem
-        </Typography>
+          </Typography>
           <NotificationsNoneOutlinedIcon fontSize='small' color='secondary' />
         </div>
       </Paper>
       <Typography variant='h5' style={{ marginTop: 60 }}>
         Veículos cadastrados
-    </Typography>
+      </Typography>
       <Grid container style={{ marginTop: 20 }}>
         <Cartao />
       </Grid>
@@ -65,6 +71,8 @@ function Home() {
         </div>
       </Grid>
       <ModalCadastrarVeiculo abrir={abrirCadastrarVeiculo} fechar={modalCadastrarVeiculo} />
+      <ModalComprarRotativo abrir={abrirComprarRotativo} fechar={modalComprarRotativo} />
+
     </>
   );
 }
