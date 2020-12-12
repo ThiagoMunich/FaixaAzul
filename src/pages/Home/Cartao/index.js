@@ -53,7 +53,7 @@ export default function Cartao({ veiculo }) {
                   <SportsMotorsportsOutlinedIcon style={{ marginRight: 10 }} />
                 )}
             <Typography>
-              {veiculo.placa}
+              {veiculo.placa.toUpperCase()}
             </Typography>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
