@@ -66,8 +66,7 @@ function Home() {
           </IconButton>
           <Typography variant='body2'>
             Cadastrar veículo
-      </Typography>
-
+         </Typography>
         </div>
       </Grid>
       <ModalCadastrarVeiculo abrir={abrirCadastrarVeiculo} fechar={modalCadastrarVeiculo} />
