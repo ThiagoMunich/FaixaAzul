@@ -19,36 +19,43 @@ function ModalCadastrarVeiculo({ abrir, fechar, cadastrar }) {
   const [caminhao, setCaminhao] = useState(false)
 
   const [tipoVeiculo, setTipoVeiculo] = useState('Automóvel')
+  const [tipoIcone, setTipoIcone] = useState(0);
 
   const handleCarro = () => {
     setCarro(true)
     setTipoVeiculo('Automóvel')
+    setTipoIcone(1)
     setMoto(false)
-    setCaminhao(false)
-  }
-
-  const handleMoto = () => {
-    setMoto(true)
-    setTipoVeiculo('Motofrete C/D')
-    setCarro(false)
     setCaminhao(false)
   }
 
   const handleCaminhao = () => {
     setCaminhao(true)
     setTipoVeiculo('Carga e descarga')
+    setTipoIcone(2)
     setCarro(false)
     setMoto(false)
   }
 
-  const { handleSubmit, getFieldProps } = useFormik({
+  const handleMoto = () => {
+    setMoto(true)
+    setTipoVeiculo('Motofrete C/D')
+    setTipoIcone(3)
+    setCarro(false)
+    setCaminhao(false)
+  }
+
+  const { handleSubmit, getFieldProps, resetForm } = useFormik({
     initialValues: {
-      id: 2,
+      nome: '',
       placa: '',
-      nome: ''
+      tipo: 0,
     },
     onSubmit: values => {
+      values.tipo = tipoIcone
       cadastrar(values)
+      resetForm()
+      setTimeout(fechar, 1)
     }
   })
 
@@ -74,13 +81,13 @@ function ModalCadastrarVeiculo({ abrir, fechar, cadastrar }) {
           <DialogContent>
             <FormControl fullWidth>
               <FormGroup>
-                <TextField variant='outlined' margin='dense' label='Placa' autoComplete='off' {...getFieldProps('placa')} />
+                <TextField variant='outlined' margin='dense' label='Placa' autoComplete='off' required {...getFieldProps('placa')} />
               </FormGroup>
             </FormControl>
             <br />
             <FormControl fullWidth>
               <FormGroup>
-                <TextField variant='outlined' margin='dense' label='Confirme a placa' autoComplete='off' {...getFieldProps('placa')} />
+                <TextField variant='outlined' margin='dense' label='Confirme a placa' autoComplete='off' required {...getFieldProps('placa')} />
               </FormGroup>
             </FormControl>
             <FormControl fullWidth>

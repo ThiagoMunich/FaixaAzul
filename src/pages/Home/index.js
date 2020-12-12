@@ -13,7 +13,7 @@ import ModalComprarRotativo from './ModalComprarRotativo'
 import ModalCadastrarVeiculo from './ModalCadastrarVeiculo'
 
 const arrayVeiculos = [
-  { id: 1, nome: 'Renault Sandero', placa: 'HNC2C28' }
+  { nome: 'Fiat 147', placa: 'THI1M17', tipo: 1 }
 ]
 
 function Home() {
@@ -65,14 +65,14 @@ function Home() {
         Veículos cadastrados
       </Typography>
       <Grid container style={{ marginTop: 20 }}>
-        {veiculos.map(veiculo => (
-          <div key={veiculo.id} style={{ width: '100%' }}>
+        {veiculos.map((veiculo, index) => (
+          <div key={index} style={{ width: '100%', marginBottom: 20 }}>
             <Cartao veiculo={veiculo} />
           </div>
         ))}
       </Grid>
       <Grid container justify='center'>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 70 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 50 }}>
           <IconButton onClick={modalCadastrarVeiculo}>
             <AddCircleOutlineOutlinedIcon color='primary' />
           </IconButton>
