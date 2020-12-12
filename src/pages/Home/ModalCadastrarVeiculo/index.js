@@ -81,6 +81,11 @@ function ModalCadastrarVeiculo({ abrir, fechar, cadastrar }) {
           <DialogContent>
             <FormControl fullWidth>
               <FormGroup>
+                <TextField variant='outlined' margin='dense' label='Nome' autoComplete='off' required {...getFieldProps('nome')} />
+              </FormGroup>
+            </FormControl>
+            <FormControl fullWidth>
+              <FormGroup>
                 <TextField variant='outlined' margin='dense' label='Placa' autoComplete='off' required {...getFieldProps('placa')} />
               </FormGroup>
             </FormControl>
@@ -88,11 +93,6 @@ function ModalCadastrarVeiculo({ abrir, fechar, cadastrar }) {
             <FormControl fullWidth>
               <FormGroup>
                 <TextField variant='outlined' margin='dense' label='Confirme a placa' autoComplete='off' required {...getFieldProps('placa')} />
-              </FormGroup>
-            </FormControl>
-            <FormControl fullWidth>
-              <FormGroup>
-                <TextField variant='outlined' margin='dense' label='Nome' autoComplete='off' required {...getFieldProps('nome')} />
               </FormGroup>
             </FormControl>
           </DialogContent>
