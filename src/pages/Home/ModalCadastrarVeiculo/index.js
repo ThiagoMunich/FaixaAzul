@@ -92,7 +92,7 @@ function ModalCadastrarVeiculo({ abrir, fechar, cadastrar }) {
             </FormControl>
             <FormControl fullWidth>
               <FormGroup>
-                <TextField variant='outlined' margin='dense' label='Nome' autoComplete='off' {...getFieldProps('nome')} />
+                <TextField variant='outlined' margin='dense' label='Nome' autoComplete='off' required {...getFieldProps('nome')} />
               </FormGroup>
             </FormControl>
           </DialogContent>
