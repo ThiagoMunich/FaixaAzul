@@ -2,12 +2,8 @@ import React from 'react';
 
 import { Chip, Paper, Typography } from '@material-ui/core'
 import { Dialog, DialogActions, DialogTitle, DialogContent, Button } from '@material-ui/core'
-import { Card, CardContent } from '@material-ui/core'
-import DirectionsCarOutlinedIcon from '@material-ui/icons/DirectionsCarOutlined';
-import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined';
-import SportsMotorsportsOutlinedIcon from '@material-ui/icons/SportsMotorsportsOutlined';
 
-function ModalComprarRotativo({ abrir, fechar, veiculos }) {
+function ModalComprarRotativo({ abrir, fechar }) {
   return (
     <>
       <Dialog open={abrir} onClose={fechar} fullWidth>
