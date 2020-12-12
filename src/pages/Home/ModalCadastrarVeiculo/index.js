@@ -1,13 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField'
+import ButtonGroup from '@material-ui/core/ButtonGroup'
 
-import ControleFormulario from '../../../components/ControleFormulario'
+import { FormControl, FormGroup } from '@material-ui/core'
+
+import DriveEtaIcon from '@material-ui/icons/DriveEta';
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
+import SportsMotorsportsIcon from '@material-ui/icons/SportsMotorsports';
 
 import { useFormik } from 'formik'
+import { TramOutlined } from '@material-ui/icons';
 
 function ModalCadastrarVeiculo({ abrir, fechar }) {
+
+  const [carro, setCarro] = useState(true)
+  const [moto, setMoto] = useState(false)
+  const [caminhao, setCaminhao] = useState(false)
+
+  const [tipoVeiculo, setTipoVeiculo] = useState('')
+
+  const handleCarro = () => {
+    setCarro(true)
+    setTipoVeiculo('Automóvel')
+    setMoto(false)
+    setCaminhao(false)
+  }
+
+  const handleMoto = () => {
+    setMoto(true)
+    setTipoVeiculo('Motofrete C/D')
+    setCarro(false)
+    setCaminhao(false)
+  }
+
+  const handleCaminhao = () => {
+    setCaminhao(true)
+    setTipoVeiculo('Carga e descarga')
+    setCarro(false)
+    setMoto(false)
+  }
 
   const { handleSubmit, getFieldProps } = useFormik({
     initialValues: {
@@ -23,20 +56,38 @@ function ModalCadastrarVeiculo({ abrir, fechar }) {
     <>
       <Dialog open={abrir} onClose={fechar}>
         <DialogTitle>
-          <Typography variant='h5'>
-            Cadastrar veículo
-          </Typography>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <ButtonGroup fullWidth>
+              <Button onClick={handleCarro}><DriveEtaIcon /></Button>
+              <Button onClick={handleCaminhao}><LocalShippingIcon /></Button>
+              <Button onClick={handleMoto}><SportsMotorsportsIcon /></Button>
+            </ButtonGroup>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
+            <Typography variant='overline'>
+              {tipoVeiculo}
+            </Typography>
+          </div>
+
         </DialogTitle>
         <form onSubmit={handleSubmit}>
           <DialogContent>
-            <ControleFormulario label='Placa'>
-              <TextField variant='outlined' margin='dense' {...getFieldProps('placa')} />
-            </ControleFormulario>
+            <FormControl fullWidth>
+              <FormGroup>
+                <TextField variant='outlined' margin='dense' label='Placa' autoComplete='off' {...getFieldProps('placa')} />
+              </FormGroup>
+            </FormControl>
             <br />
-            <br />
-            <ControleFormulario label='Nome/apelido do veículo'>
-              <TextField variant='outlined' margin='dense' {...getFieldProps('nome')} />
-            </ControleFormulario>
+            <FormControl fullWidth>
+              <FormGroup>
+                <TextField variant='outlined' margin='dense' label='Confirme a placa' autoComplete='off' {...getFieldProps('placa')} />
+              </FormGroup>
+            </FormControl>
+            <FormControl fullWidth>
+              <FormGroup>
+                <TextField variant='outlined' margin='dense' label='Nome' autoComplete='off' {...getFieldProps('nome')} />
+              </FormGroup>
+            </FormControl>
           </DialogContent>
           <DialogActions>
             <Button size='small' color='secondary' onClick={fechar}>
