@@ -31,36 +31,35 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Cartao() {
+export default function Cartao({ veiculo }) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root} elevation={5}>
       <CardContent>
         <Typography variant='overline' className={classes.title}>
-            Renault Sandero
+          {veiculo.nome}
         </Typography>
-        <Divider variant='fullWidth'/>
-        <div style={{display:'flex', alignContent:'center', justifyContent: 'space-between', padding: 5, marginTop: 10}}>
-            <div style={{display:'flex', alignContent:'center', justifyContent: 'flex-start', marginTop: 10}}>
-                <DirectionsCarOutlinedIcon style={{marginRight:10}}/>
-                <Typography>
-                    HNC2C28
-                </Typography>
-            </div>
-            <div style={{display:'flex', flexDirection: 'column', alignItems:'center'}}>
-                <Typography variant='caption'>
-                    +2 bônus!
-                </Typography>
-                <CardGiftcardOutlinedIcon color="secondary"/>
-            </div>
+        <Divider variant='fullWidth' />
+        <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'space-between', padding: 5, marginTop: 10 }}>
+          <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'flex-start', marginTop: 10 }}>
+            <DirectionsCarOutlinedIcon style={{ marginRight: 10 }} />
+            <Typography>
+              {veiculo.placa}
+            </Typography>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Typography variant='caption'>
+              +2 bônus!
+            </Typography>
+            <CardGiftcardOutlinedIcon color="secondary" />
+          </div>
         </div>
-
       </CardContent>
       <CardActions>
-          <Button variant='outlined' fullWidth size='small' color='primary'>
-              Estacionar
-          </Button>
+        <Button variant='outlined' fullWidth size='small' color='primary'>
+          Estacionar
+        </Button>
       </CardActions>
     </Card>
   );

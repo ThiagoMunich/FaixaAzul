@@ -11,9 +11,8 @@ import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import SportsMotorsportsIcon from '@material-ui/icons/SportsMotorsports';
 
 import { useFormik } from 'formik'
-import { TramOutlined } from '@material-ui/icons';
 
-function ModalCadastrarVeiculo({ abrir, fechar }) {
+function ModalCadastrarVeiculo({ abrir, fechar, cadastrar, veiculos }) {
 
   const [carro, setCarro] = useState(true)
   const [moto, setMoto] = useState(false)
@@ -44,11 +43,12 @@ function ModalCadastrarVeiculo({ abrir, fechar }) {
 
   const { handleSubmit, getFieldProps } = useFormik({
     initialValues: {
+      id: 2,
       placa: '',
       nome: ''
     },
     onSubmit: values => {
-      console.log(values)
+      cadastrar(values)
     }
   })
 

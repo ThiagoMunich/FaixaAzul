@@ -12,11 +12,15 @@ import Cartao from './Cartao'
 import ModalComprarRotativo from './ModalComprarRotativo'
 import ModalCadastrarVeiculo from './ModalCadastrarVeiculo'
 
+const arrayVeiculos = [
+  { id: 1, nome: 'Renault Sandero', placa: 'HNC2C28' }
+]
 
 function Home() {
 
   const [abrirCadastrarVeiculo, setAbrirCadastrarVeiculo] = useState(false)
   const [abrirComprarRotativo, setAbrirComprarRotativo] = useState(false)
+  const [veiculos, setVeiculos] = useState(arrayVeiculos)
 
   const modalCadastrarVeiculo = () => {
     setAbrirCadastrarVeiculo(!abrirCadastrarVeiculo)
@@ -24,6 +28,10 @@ function Home() {
 
   const modalComprarRotativo = () => {
     setAbrirComprarRotativo(!abrirComprarRotativo)
+  }
+
+  const cadastrarVeiculo = novoVeiculo => {
+    setVeiculos([...veiculos, novoVeiculo])
   }
 
   return (
@@ -57,7 +65,11 @@ function Home() {
         Veículos cadastrados
       </Typography>
       <Grid container style={{ marginTop: 20 }}>
-        <Cartao />
+        {veiculos.map(veiculo => (
+          <div key={veiculo.id} style={{ width: '100%' }}>
+            <Cartao veiculo={veiculo} />
+          </div>
+        ))}
       </Grid>
       <Grid container justify='center'>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 70 }}>
@@ -69,8 +81,8 @@ function Home() {
          </Typography>
         </div>
       </Grid>
-      <ModalCadastrarVeiculo abrir={abrirCadastrarVeiculo} fechar={modalCadastrarVeiculo} />
       <ModalComprarRotativo abrir={abrirComprarRotativo} fechar={modalComprarRotativo} />
+      <ModalCadastrarVeiculo abrir={abrirCadastrarVeiculo} fechar={modalCadastrarVeiculo} cadastrar={cadastrarVeiculo} />
 
     </>
   );
