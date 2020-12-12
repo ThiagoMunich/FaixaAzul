@@ -12,7 +12,7 @@ import SportsMotorsportsIcon from '@material-ui/icons/SportsMotorsports';
 
 import { useFormik } from 'formik'
 
-function ModalCadastrarVeiculo({ abrir, fechar, cadastrar, veiculos }) {
+function ModalCadastrarVeiculo({ abrir, fechar, cadastrar }) {
 
   const [carro, setCarro] = useState(true)
   const [moto, setMoto] = useState(false)
