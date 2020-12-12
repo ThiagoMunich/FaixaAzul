@@ -18,15 +18,17 @@ function ModalCadastrarVeiculo({ abrir, fechar }) {
           <ControleFormulario label='Placa'>
             <TextField variant='outlined' margin='dense' />
           </ControleFormulario>
+          <br />
+          <br />
           <ControleFormulario label='Nome/apelido do veículo'>
             <TextField variant='outlined' margin='dense' />
           </ControleFormulario>
         </DialogContent>
         <DialogActions>
-          <Button size='small'>
+          <Button size='small' color='secondary'>
             Cancelar
           </Button>
-          <Button size='small'>
+          <Button size='small' color='primary'>
             Salvar
           </Button>
         </DialogActions>
