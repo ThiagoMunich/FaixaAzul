@@ -12,20 +12,7 @@ function ModalComprarRotativo({ abrir, fechar, veiculos }) {
     <>
       <Dialog open={abrir} onClose={fechar} fullWidth>
         <DialogTitle>
-          <Typography variant='h5'>Seus veículos</Typography>
-          {/* <div style={{ display: 'flex', flexDirection: 'row', marginTop: 10 }}> */}
-          {veiculos.map((veiculo, index) => (
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5, marginRight: 10 }}>
-              <Chip key={index} label={veiculo.nome} variant='outlined' icon={
-                veiculo.tipo === 1 ? <DirectionsCarOutlinedIcon /> :
-                  veiculo.tipo === 2 ? <LocalShippingOutlinedIcon /> :
-                    <SportsMotorsportsOutlinedIcon />
-              }
-                size='small'
-              />
-            </div>
-          ))}
-          {/* </div> */}
+          <Typography variant='h5'>Saldo atual: R$25,00</Typography>
         </DialogTitle>
         <form>
           <DialogContent>
@@ -48,6 +35,10 @@ function ModalComprarRotativo({ abrir, fechar, veiculos }) {
               <Chip label="R$ 44,00" variant='outlined' size='small' clickable style={{ color: '#7DB61C' }} />
             </div>
           </DialogContent>
+          <DialogActions>
+            <Button size='small' color='secondary'>Cancelar</Button>
+            <Button size='small' color='primary'>Comprar</Button>
+          </DialogActions>
         </form>
       </Dialog>
     </>
