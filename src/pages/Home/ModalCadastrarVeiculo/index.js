@@ -5,7 +5,20 @@ import TextField from '@material-ui/core/TextField'
 
 import ControleFormulario from '../../../components/ControleFormulario'
 
+import { useFormik } from 'formik'
+
 function ModalCadastrarVeiculo({ abrir, fechar }) {
+
+  const { handleSubmit, getFieldProps } = useFormik({
+    initialValues: {
+      placa: '',
+      nome: ''
+    },
+    onSubmit: values => {
+      console.log(values)
+    }
+  })
+
   return (
     <>
       <Dialog open={abrir} onClose={fechar}>
@@ -14,25 +27,26 @@ function ModalCadastrarVeiculo({ abrir, fechar }) {
             Cadastrar veículo
           </Typography>
         </DialogTitle>
-        <DialogContent>
-          <ControleFormulario label='Placa'>
-            <TextField variant='outlined' margin='dense' />
-          </ControleFormulario>
-          <br />
-          <br />
-          <ControleFormulario label='Nome/apelido do veículo'>
-            <TextField variant='outlined' margin='dense' />
-          </ControleFormulario>
-        </DialogContent>
-        <DialogActions>
-          <Button size='small' color='secondary'>
-            Cancelar
+        <form onSubmit={handleSubmit}>
+          <DialogContent>
+            <ControleFormulario label='Placa'>
+              <TextField variant='outlined' margin='dense' {...getFieldProps('placa')} />
+            </ControleFormulario>
+            <br />
+            <br />
+            <ControleFormulario label='Nome/apelido do veículo'>
+              <TextField variant='outlined' margin='dense' {...getFieldProps('nome')} />
+            </ControleFormulario>
+          </DialogContent>
+          <DialogActions>
+            <Button size='small' color='secondary' onClick={fechar}>
+              Cancelar
           </Button>
-          <Button size='small' color='primary'>
-            Salvar
+            <Button type='submit' size='small' color='primary'>
+              Salvar
           </Button>
-        </DialogActions>
-
+          </DialogActions>
+        </form>
       </Dialog>
 
     </>
