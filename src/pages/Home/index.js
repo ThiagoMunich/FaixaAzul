@@ -81,7 +81,7 @@ function Home() {
          </Typography>
         </div>
       </Grid>
-      <ModalComprarRotativo abrir={abrirComprarRotativo} fechar={modalComprarRotativo} />
+      <ModalComprarRotativo abrir={abrirComprarRotativo} fechar={modalComprarRotativo} veiculos={veiculos} />
       <ModalCadastrarVeiculo abrir={abrirCadastrarVeiculo} fechar={modalCadastrarVeiculo} cadastrar={cadastrarVeiculo} />
 
     </>
