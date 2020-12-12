@@ -15,7 +15,7 @@ function Home() {
 
   const [abrirCadastrarVeiculo, setAbrirCadastrarVeiculo] = useState(false)
 
-  const handleModalCadastrarVeiculo = () => {
+  const modalCadastrarVeiculo = () => {
     setAbrirCadastrarVeiculo(!abrirCadastrarVeiculo)
   }
 
@@ -55,7 +55,7 @@ function Home() {
       </Grid>
       <Grid container justify='center'>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 70 }}>
-          <IconButton onClick={handleModalCadastrarVeiculo}>
+          <IconButton onClick={modalCadastrarVeiculo}>
             <AddCircleOutlineOutlinedIcon color='primary' />
           </IconButton>
           <Typography variant='body2'>
@@ -64,7 +64,7 @@ function Home() {
 
         </div>
       </Grid>
-      <ModalCadastrarVeiculo abrir={abrirCadastrarVeiculo} fechar={handleModalCadastrarVeiculo} />
+      <ModalCadastrarVeiculo abrir={abrirCadastrarVeiculo} fechar={modalCadastrarVeiculo} />
     </>
   );
 }
