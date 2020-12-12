@@ -19,7 +19,7 @@ function ModalCadastrarVeiculo({ abrir, fechar }) {
   const [moto, setMoto] = useState(false)
   const [caminhao, setCaminhao] = useState(false)
 
-  const [tipoVeiculo, setTipoVeiculo] = useState('')
+  const [tipoVeiculo, setTipoVeiculo] = useState('Automóvel')
 
   const handleCarro = () => {
     setCarro(true)
