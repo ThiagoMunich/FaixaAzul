@@ -69,9 +69,9 @@ function Dashboard(props) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        {['Início', 'Cadastrar veículo'].map((text, index) => (
+        {['Início'].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemIcon><HomeIcon /></ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
