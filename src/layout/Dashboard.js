@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import List from '@material-ui/core/List';
+import Switch from '@material-ui/core/Switch'
 import AppBar from '@material-ui/core/AppBar';
 import Hidden from '@material-ui/core/Hidden';
 import Drawer from '@material-ui/core/Drawer';
@@ -13,11 +14,13 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
-
-import MailIcon from '@material-ui/icons/Mail';
-import HomeIcon from '@material-ui/icons/Home';
-
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+
+import HomeIcon from '@material-ui/icons/Home';
+import { GiMoonBats } from 'react-icons/gi'
+
+import useMain from '../hooks/useMain';
+import { Grid } from '@material-ui/core';
 
 const drawerWidth = 250;
 
@@ -55,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Dashboard(props) {
+  const { tema, trocarTema } = useMain()
   const { window, children } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -86,15 +90,29 @@ function Dashboard(props) {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Grid container justify='space-between'>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              className={classes.menuButton}
+            >
+              <MenuIcon />
+            </IconButton>
+
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Switch
+                size='medium'
+                name='checkedA'
+                color='default'
+                onChange={trocarTema}
+                checked={tema === 'dark'}
+              />
+
+              <GiMoonBats size={30} />
+            </div>
+          </Grid>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
