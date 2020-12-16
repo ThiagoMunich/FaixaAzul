@@ -80,7 +80,7 @@ function Home() {
           </Grid>
         </>
       ) : (
-          <Alert severity='warning' variant='outlined' style={{ marginTop: 25 }} color='error'>
+          <Alert severity='warning' variant='outlined' style={{ marginTop: '45vh' }} color='error'>
             <AlertTitle><Typography variant='overline'>Nenhum veículo encontrado</Typography></AlertTitle>
             <Typography variant='body2'><strong>Dica:</strong> Use o icone abaixo!</Typography>
           </Alert>
