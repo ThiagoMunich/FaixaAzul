@@ -21,7 +21,7 @@ export const MainContext = createContext<IMainContext>({} as IMainContext)
 
 const MainProvider: React.FC = ({children}) => {
   
-  const [tema,setTema] = useState<'dark' | 'light'>('light')
+  const [tema,setTema] = useState<'dark' | 'light'>('dark')
 
   const [saldo, setSaldo] = useState<ISaldo>({} as ISaldo)
 
