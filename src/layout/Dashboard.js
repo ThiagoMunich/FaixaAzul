@@ -105,9 +105,9 @@ function Dashboard(props) {
               <Switch
                 size='medium'
                 name='checkedA'
-                color='primary'
                 onChange={trocarTema}
                 checked={tema === 'dark'}
+                style={tema === 'dark' ? { color: '#212121' } : { color: '#e0e0e0' }}
               />
 
               <GiMoonBats size={30} />
