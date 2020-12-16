@@ -105,7 +105,7 @@ function Dashboard(props) {
               <Switch
                 size='medium'
                 name='checkedA'
-                color='default'
+                color='primary'
                 onChange={trocarTema}
                 checked={tema === 'dark'}
               />
