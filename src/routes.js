@@ -16,10 +16,10 @@ function Routes() {
     palette: {
       type: tema === 'dark' ? 'dark' : 'light',
       primary: {
-        main: tema === 'dark' ? '#C9D200' : '#00AE9D',
+        main: tema === 'dark' ? '#C9D200' : '#49479D',
       },
       secondary: {
-        main: tema === 'dark' ? '#C9D' : '#49479D',
+        main: tema === 'dark' ? '#C9D' : '#D50000',
       },
     },
     typography: {
