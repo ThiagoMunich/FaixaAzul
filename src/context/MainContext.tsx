@@ -26,16 +26,14 @@ const MainProvider: React.FC = ({children}) => {
   const [saldo, setSaldo] = useState<ISaldo>({} as ISaldo)
 
   useEffect(() => {
-
     if(localStorage.getItem('@FaixaAzul-Tema') !== null) {
       setTema(localStorage.getItem('@FaixaAzul-Tema') === 'dark' ? 'dark' : 'light')
     }
-
   },[])
 
   function trocarTema() {
     setTema(tema === 'dark' ? 'light' : 'dark');
-  localStorage.setItem('@FaixaAzul-Tema', tema === 'dark' ? 'light' : 'dark');
+    localStorage.setItem('@FaixaAzul-Tema', tema === 'dark' ? 'light' : 'dark');
   }
 
   return <MainContext.Provider value={{saldo,setSaldo, tema, trocarTema}}>{children}</MainContext.Provider>
