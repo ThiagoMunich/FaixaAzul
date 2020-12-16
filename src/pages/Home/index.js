@@ -1,20 +1,25 @@
 import React, { useState } from 'react'
+
 import Grid from "@material-ui/core/Grid"
+import Alert from '@material-ui/lab/Alert'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
+import AlertTitle from '@material-ui/lab/AlertTitle'
 
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
+import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 
 import Cartao from './Cartao'
 import ModalComprarRotativo from './ModalComprarRotativo'
 import ModalCadastrarVeiculo from './ModalCadastrarVeiculo'
 
-const arrayVeiculos = [
-  { nome: 'Fiat 147', placa: 'THI1M17', tipo: 1 }
-]
+// const arrayVeiculos = [
+//   { nome: 'Fiat 147', placa: 'THI1M17', tipo: 1 }
+// ]
+
+const arrayVeiculos = []
 
 function Home() {
 
@@ -61,26 +66,37 @@ function Home() {
           <NotificationsNoneOutlinedIcon fontSize='small' color='secondary' />
         </div>
       </Paper>
-      <Typography variant='h5' style={{ marginTop: 60 }}>
-        Veículos cadastrados
-      </Typography>
-      <Grid container style={{ marginTop: 20 }}>
-        {veiculos.map((veiculo, index) => (
-          <div key={index} style={{ width: '100%', marginBottom: 20 }}>
-            <Cartao veiculo={veiculo} />
-          </div>
-        ))}
-      </Grid>
+      {veiculos.length !== 0 ? (
+        <>
+          <Typography variant='h5' style={{ marginTop: 60 }}>
+            Veículos cadastrados
+          </Typography>
+          <Grid container style={{ marginTop: 20 }}>
+            {veiculos.map((veiculo, index) => (
+              <div key={index} style={{ width: '100%', marginBottom: 20 }}>
+                <Cartao veiculo={veiculo} />
+              </div>
+            ))}
+          </Grid>
+        </>
+      ) : (
+          <Alert severity='warning' variant='outlined' style={{ marginTop: 25 }}>
+            <AlertTitle><Typography variant='overline'>Nenhum veículo encontrado</Typography></AlertTitle>
+            <Typography variant='body2'><strong>Dica:</strong> Use o icone abaixo!</Typography>
+          </Alert>
+        )}
+
       <Grid container justify='center'>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 50 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 25 }}>
           <IconButton onClick={modalCadastrarVeiculo}>
             <AddCircleOutlineOutlinedIcon color='primary' />
           </IconButton>
           <Typography variant='body2'>
             Cadastrar veículo
-         </Typography>
+          </Typography>
         </div>
       </Grid>
+
       <ModalComprarRotativo abrir={abrirComprarRotativo} fechar={modalComprarRotativo} veiculos={veiculos} />
       <ModalCadastrarVeiculo abrir={abrirCadastrarVeiculo} fechar={modalCadastrarVeiculo} cadastrar={cadastrarVeiculo} />
 
