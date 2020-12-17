@@ -22,7 +22,8 @@ function ModalComprarRotativo({ abrir, fechar }) {
               <Typography variant='overline'>
                 5 rotativos
                 </Typography>
-              <Chip label="R$ 22,00" variant='outlined' size='small' clickable style={{ color: '#7DB61C' }} />
+              <strong style={{ color: '#7DB61C' }}>R$ 22,00</strong>
+              {/* <Chip label="R$ 22,00" variant='outlined' size='small' clickable style={{ color: '#7DB61C' }} /> */}
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <Typography variant='overline'>

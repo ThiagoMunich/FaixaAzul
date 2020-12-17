@@ -14,6 +14,10 @@ function Routes() {
 
   const theme = createMuiTheme({
     palette: {
+      background: {
+        default: tema === 'dark' ? '#000' : "#FFF",
+        paper: '#00AE9D'
+      },
       type: tema === 'dark' ? 'dark' : 'light',
       primary: {
         main: tema === 'dark' ? '#C9D200' : '#49479D',

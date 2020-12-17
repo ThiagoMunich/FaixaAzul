@@ -14,10 +14,11 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-import HomeIcon from '@material-ui/icons/Home';
 import { GiMoonBats } from 'react-icons/gi'
+import HomeIcon from '@material-ui/icons/Home';
 
 import useMain from '../hooks/useMain';
 import { Grid } from '@material-ui/core';
@@ -64,6 +65,8 @@ function Dashboard(props) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const mobile = useMediaQuery('(min-width:600px)');
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -90,28 +93,33 @@ function Dashboard(props) {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-          <Grid container justify='space-between'>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              className={classes.menuButton}
-            >
-              <MenuIcon />
-            </IconButton>
+          <Grid container justify={mobile ? 'flex-end' : 'space-between'} alignItems='center'>
+            <Grid item>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                className={classes.menuButton}
+              >
+                <MenuIcon />
+              </IconButton>
+            </Grid>
 
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Switch
-                size='medium'
-                name='checkedA'
-                onChange={trocarTema}
-                checked={tema === 'dark'}
-                style={tema === 'dark' ? { color: '#212121' } : { color: '#e0e0e0' }}
-              />
+            <Grid item>
+              <Grid container alignItems='center' spacing={1}>
+                <Switch
+                  size='medium'
+                  name='checkedA'
+                  onChange={trocarTema}
+                  checked={tema === 'dark'}
+                  style={tema === 'dark' ? { color: '#212121' } : { color: '#e0e0e0' }}
+                />
 
-              <GiMoonBats size={30} />
-            </div>
+                <GiMoonBats size={30} />
+              </Grid>
+            </Grid>
+
           </Grid>
         </Toolbar>
       </AppBar>
