@@ -69,7 +69,15 @@ function Home() {
 						<div style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
 							<Typography variant='h6' style={{ marginRight: 10 }}>
 								Seu saldo: 
-								<CountUp duration={2} end={saldo.saldo} decimals={2} decimal=',' separator='.' prefix='R$ ' />
+								<CountUp
+									duration={2}
+									start={saldo.saldo}
+									end={saldo.saldo}
+									decimals={2}
+									decimal=','
+									separator='.'
+									prefix='R$ '
+								/>
 							</Typography>
 						</div>
 					</Grid>
