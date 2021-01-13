@@ -77,14 +77,16 @@ function Home() {
 					</Grid>
 				</>
 			) : (
-				<Alert severity='warning' variant='outlined' style={{ marginTop: '20vh', width: 300 }} color='error'>
-					<AlertTitle>
-						<Typography variant='overline'>Nenhum veículo encontrado</Typography>
-					</AlertTitle>
-					<Typography variant='body2'>
-						<strong>Dica:</strong> Use o icone abaixo!
-					</Typography>
-				</Alert>
+				<Grid container justify='center'>
+					<Alert severity='warning' variant='outlined' style={{ marginTop: '20vh', width: 300 }} color='error'>
+						<AlertTitle>
+							<Typography variant='overline'>Nenhum veículo encontrado</Typography>
+						</AlertTitle>
+						<Typography variant='body2'>
+							<strong>Dica:</strong> Use o icone abaixo!
+						</Typography>
+					</Alert>
+				</Grid>
 			)}
 
 			<Grid container justify='center'>
