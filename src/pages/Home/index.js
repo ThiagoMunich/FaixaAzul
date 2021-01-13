@@ -42,61 +42,83 @@ function Home() {
 
 	return (
 		<>
-			<Grid container justify='space-between' alignContent='center' alignItems='center'>
-				<Grid item>
-					<div style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
-						<Typography variant='h6' style={{ marginRight: 10 }}>
-							Seu saldo: 
-							<CountUp duration={2} end={saldo.saldo} decimals={2} decimal=',' separator='.' prefix='R$ ' />
-						</Typography>
-					</div>
-				</Grid>
-				<Grid item>
-					<IconButton onClick={modalComprarRotativo}>
-						<AddShoppingCartIcon color='primary' />
-					</IconButton>
-				</Grid>
-			</Grid>
-			<Paper elevation={5} style={{ marginTop: 20, padding: 5 }}>
-				<div style={{ display: 'flex', alignContent: 'center', justifyContent: 'space-between' }}>
-					<Typography variant='body2'>Você tem 1 nova mensagem</Typography>
-					<NotificationsNoneOutlinedIcon fontSize='small' color='secondary' />
-				</div>
-			</Paper>
-			{veiculos.length !== 0 ? (
+			{saldo.saldo === 0 ? (
 				<>
-					<Typography variant='h5' style={{ marginTop: 60 }}>
-						Veículos cadastrados
-					</Typography>
-					<Grid container style={{ marginTop: 20 }}>
-						{veiculos.map((veiculo, index) => (
-							<div key={index} style={{ width: '100%', marginBottom: 20 }}>
-								<Cartao veiculo={veiculo} />
-							</div>
-						))}
+					<Grid container justify='center'>
+						<Alert severity='warning' variant='outlined' style={{ marginTop: '10vh', width: 300 }} color='error'>
+							<AlertTitle>
+								<Typography variant='overline'>Você não possui saldo</Typography>
+							</AlertTitle>
+							<Typography variant='body2'>
+								<strong>Dica:</strong> Use o carrinho abaixo!
+							</Typography>
+						</Alert>
+					</Grid>
+					<Grid container justify='center'>
+						<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 10 }}>
+							<IconButton onClick={modalComprarRotativo}>
+								<AddShoppingCartIcon color='primary' />
+							</IconButton>
+							<Typography variant='body2'>Comprar rotativos</Typography>
+						</div>
 					</Grid>
 				</>
 			) : (
-				<Grid container justify='center'>
-					<Alert severity='warning' variant='outlined' style={{ marginTop: '20vh', width: 300 }} color='error'>
-						<AlertTitle>
-							<Typography variant='overline'>Nenhum veículo encontrado</Typography>
-						</AlertTitle>
-						<Typography variant='body2'>
-							<strong>Dica:</strong> Use o icone abaixo!
-						</Typography>
-					</Alert>
+				<Grid container justify='space-between' alignContent='center' alignItems='center'>
+					<Grid item>
+						<div style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+							<Typography variant='h6' style={{ marginRight: 10 }}>
+								Seu saldo: 
+								<CountUp duration={2} end={saldo.saldo} decimals={2} decimal=',' separator='.' prefix='R$ ' />
+							</Typography>
+						</div>
+					</Grid>
+					<Grid item>
+						<IconButton onClick={modalComprarRotativo}>
+							<AddShoppingCartIcon color='primary' />
+						</IconButton>
+					</Grid>
 				</Grid>
 			)}
 
-			<Grid container justify='center'>
-				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 25 }}>
-					<IconButton onClick={modalCadastrarVeiculo}>
-						<AddCircleOutlineOutlinedIcon color='primary' />
-					</IconButton>
-					<Typography variant='body2'>Cadastrar veículo</Typography>
-				</div>
-			</Grid>
+			{saldo.saldo > 0 && (
+				<>
+					{veiculos.length !== 0 ? (
+						<>
+							<Typography variant='h5' style={{ marginTop: 60 }}>
+								Veículos cadastrados
+							</Typography>
+							<Grid container style={{ marginTop: 20 }}>
+								{veiculos.map((veiculo, index) => (
+									<div key={index} style={{ width: '100%', marginBottom: 20 }}>
+										<Cartao veiculo={veiculo} />
+									</div>
+								))}
+							</Grid>
+						</>
+					) : (
+						<Grid container justify='center'>
+							<Alert severity='warning' variant='outlined' style={{ marginTop: '10vh', width: 300 }} color='error'>
+								<AlertTitle>
+									<Typography variant='overline'>Nenhum veículo encontrado</Typography>
+								</AlertTitle>
+								<Typography variant='body2'>
+									<strong>Dica:</strong> Use o icone abaixo!
+								</Typography>
+							</Alert>
+						</Grid>
+					)}
+
+					<Grid container justify='center'>
+						<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 25 }}>
+							<IconButton onClick={modalCadastrarVeiculo}>
+								<AddCircleOutlineOutlinedIcon color='primary' />
+							</IconButton>
+							<Typography variant='body2'>Cadastrar veículo</Typography>
+						</div>
+					</Grid>
+				</>
+			)}
 
 			<ModalComprarRotativo abrir={abrirComprarRotativo} fechar={modalComprarRotativo} veiculos={veiculos} />
 			<ModalCadastrarVeiculo
