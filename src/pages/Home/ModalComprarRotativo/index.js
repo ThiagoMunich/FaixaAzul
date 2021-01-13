@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
+import CountUp from 'react-countup';
 import { Chip, Paper, Typography } from '@material-ui/core';
-import { useMain } from '../../../hooks/useMain';
 import { Dialog, DialogActions, DialogTitle, DialogContent, Button } from '@material-ui/core';
+
+import { useMain } from '../../../hooks/useMain';
 
 function ModalComprarRotativo({ abrir, fechar }) {
 	const { saldo, setSaldo } = useMain();
@@ -13,7 +15,10 @@ function ModalComprarRotativo({ abrir, fechar }) {
 		<>
 			<Dialog open={abrir} onClose={fechar} fullWidth>
 				<DialogTitle>
-					<Typography variant='h5'>Saldo atual: R${saldo.saldo}</Typography>
+					<Typography variant='h5'>
+						Saldo atual: 
+						<CountUp duration={2} end={saldo.saldo} decimals={2} decimal=',' separator='.' prefix='R$ ' />
+					</Typography>
 				</DialogTitle>
 				<form>
 					<DialogContent>
@@ -63,8 +68,8 @@ function ModalComprarRotativo({ abrir, fechar }) {
 							color='primary'
 							disabled={saldoTemporario === 0}
 							onClick={() => {
+								setTimeout(fechar, 1);
 								setSaldo({ saldo: saldoTemporario + saldo.saldo });
-								setTimeout(fechar, 5);
 							}}
 						>
 							Comprar
