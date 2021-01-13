@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 
+import CountUp from 'react-countup';
+
 import Grid from '@material-ui/core/Grid';
 import Alert from '@material-ui/lab/Alert';
 import Paper from '@material-ui/core/Paper';
+import AlertTitle from '@material-ui/lab/AlertTitle';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import AlertTitle from '@material-ui/lab/AlertTitle';
 
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
@@ -15,13 +17,13 @@ import Cartao from './Cartao';
 import ModalComprarRotativo from './ModalComprarRotativo';
 import ModalCadastrarVeiculo from './ModalCadastrarVeiculo';
 
-// const arrayVeiculos = [
-//   { nome: 'Fiat 147', placa: 'THI1M17', tipo: 1 }
-// ]
+import { useMain } from '../../hooks/useMain';
 
 const arrayVeiculos = [];
 
 function Home() {
+	const { saldo, setSaldo } = useMain();
+
 	const [abrirCadastrarVeiculo, setAbrirCadastrarVeiculo] = useState(false);
 	const [abrirComprarRotativo, setAbrirComprarRotativo] = useState(false);
 	const [veiculos, setVeiculos] = useState(arrayVeiculos);
@@ -43,10 +45,10 @@ function Home() {
 			<Grid container justify='space-between' alignContent='center' alignItems='center'>
 				<Grid item>
 					<div style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
-						<Typography variant='h5' style={{ marginRight: 10 }}>
-							Saldo:
+						<Typography variant='h6' style={{ marginRight: 10 }}>
+							Seu saldo: 
+							<CountUp duration={2} end={saldo.saldo} decimals={2} decimal=',' separator='.' prefix='R$ ' />
 						</Typography>
-						<Typography variant='body2'>R$ 25,00</Typography>
 					</div>
 				</Grid>
 				<Grid item>

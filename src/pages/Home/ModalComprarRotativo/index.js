@@ -14,12 +14,6 @@ function ModalComprarRotativo({ abrir, fechar }) {
 	return (
 		<>
 			<Dialog open={abrir} onClose={fechar} fullWidth>
-				<DialogTitle>
-					<Typography variant='h5'>
-						Saldo atual: 
-						<CountUp duration={2} end={saldo.saldo} decimals={2} decimal=',' separator='.' prefix='R$ ' />
-					</Typography>
-				</DialogTitle>
 				<form>
 					<DialogContent>
 						<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -55,8 +49,8 @@ function ModalComprarRotativo({ abrir, fechar }) {
 								onClick={() => setSaldoTemporario(44.0)}
 							/>
 						</div>
-						<Typography variant='caption' align='justify'>
-							OBS: Nehum valor real será cobrado
+						<Typography variant='caption' align='justify' style={{ fontWeight: 700 }}>
+							OBS: Você não será cobrado.
 						</Typography>
 					</DialogContent>
 					<DialogActions>
