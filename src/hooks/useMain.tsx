@@ -1,15 +1,12 @@
-import {useContext} from 'react'
-import {MainContext} from '../context/MainContext'
+import { useContext } from 'react';
+import { MainContext } from '../context/MainContext';
 
-const useMain = () => {
-  const context = useContext(MainContext)
+export const useMain = () => {
+	const context = useContext(MainContext);
 
-  if(!context) throw new Error('useAuth must be used within a MainProvider')
+	if (!context) throw new Error('useAuth must be used within a MainProvider');
 
-  const {saldo, setSaldo, tema, trocarTema} = context
-  
-  return context
+	return context;
+};
 
-}
-
-export default useMain
+export default useMain;
