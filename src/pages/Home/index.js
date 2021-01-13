@@ -122,9 +122,9 @@ function Home() {
 
 			<ModalComprarRotativo abrir={abrirComprarRotativo} fechar={modalComprarRotativo} veiculos={veiculos} />
 			<ModalCadastrarVeiculo
+				cadastrar={cadastrarVeiculo}
 				abrir={abrirCadastrarVeiculo}
 				fechar={modalCadastrarVeiculo}
-				cadastrar={cadastrarVeiculo}
 			/>
 		</>
 	);
