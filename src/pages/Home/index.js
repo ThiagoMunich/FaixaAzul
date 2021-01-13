@@ -45,7 +45,7 @@ function Home() {
 			{saldo.saldo === 0 ? (
 				<>
 					<Grid container justify='center'>
-						<Alert severity='warning' variant='outlined' style={{ marginTop: '10vh', width: 300 }} color='error'>
+						<Alert severity='warning' variant='outlined' style={{ marginTop: '5vh', width: 300 }} color='error'>
 							<AlertTitle>
 								<Typography variant='overline'>Você não possui saldo</Typography>
 							</AlertTitle>
