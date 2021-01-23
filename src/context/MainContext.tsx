@@ -5,6 +5,7 @@ interface ISaldo {
 }
 
 interface IVeiculos {
+	estacionado: boolean;
 	nome: string;
 	placa: string;
 	tipo: number;

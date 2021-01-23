@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
+
+import Countdown from 'react-countdown';
 
 import Card from '@material-ui/core/Card';
 
@@ -14,6 +16,8 @@ import CardGiftcardOutlinedIcon from '@material-ui/icons/CardGiftcardOutlined';
 import DirectionsCarOutlinedIcon from '@material-ui/icons/DirectionsCarOutlined';
 import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined';
 import SportsMotorsportsOutlinedIcon from '@material-ui/icons/SportsMotorsportsOutlined';
+
+import useMain from '../../../hooks/useMain';
 
 const useStyles = makeStyles({
 	root: {
@@ -35,6 +39,10 @@ const useStyles = makeStyles({
 
 export default function Cartao({ veiculo }) {
 	const classes = useStyles();
+
+	const handleEstacionar = veiculoParaEstacionar => {
+		veiculoParaEstacionar.estacionado = true;
+	};
 
 	return (
 		<Card className={classes.root} elevation={5}>
@@ -69,9 +77,13 @@ export default function Cartao({ veiculo }) {
 				</div>
 			</CardContent>
 			<CardActions>
-				<Button variant='outlined' fullWidth size='small' color='primary' onClick={() => console.log(veiculo)}>
-					Estacionar
-				</Button>
+				{veiculo.estacionado ? (
+					<h2>estacionar</h2>
+				) : (
+					<Button variant='outlined' fullWidth size='small' color='primary' onClick={handleEstacionar(veiculo)}>
+						Estacionar
+					</Button>
+				)}
 			</CardActions>
 		</Card>
 	);

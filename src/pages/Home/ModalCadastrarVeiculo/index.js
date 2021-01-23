@@ -46,6 +46,7 @@ function ModalCadastrarVeiculo({ abrir, fechar, cadastrar }) {
 
 	const { handleSubmit, getFieldProps, resetForm } = useFormik({
 		initialValues: {
+			estacionado: false,
 			nome: '',
 			placa: '',
 			tipo: 0,
