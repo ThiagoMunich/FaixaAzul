@@ -45,7 +45,7 @@ function Home() {
 								<Typography variant='overline'>Você não possui saldo</Typography>
 							</AlertTitle>
 							<Typography variant='body2'>
-								<strong>Dica:</strong> Use o carrinho abaixo!
+								<strong>Dica:</strong> use o carrinho abaixo!
 							</Typography>
 						</Alert>
 					</Grid>
@@ -98,7 +98,7 @@ function Home() {
 									<Typography variant='overline'>Nenhum veículo encontrado</Typography>
 								</AlertTitle>
 								<Typography variant='body2'>
-									<strong>Dica:</strong> Use o icone abaixo!
+									<strong>Dica:</strong> use o icone abaixo!
 								</Typography>
 							</Alert>
 						</Grid>
