@@ -18,14 +18,11 @@ import ModalCadastrarVeiculo from './ModalCadastrarVeiculo';
 
 import { useMain } from '../../hooks/useMain';
 
-// const arrayVeiculos = [];
-
 function Home() {
 	const { saldo, veiculos, setVeiculos } = useMain();
 
 	const [abrirCadastrarVeiculo, setAbrirCadastrarVeiculo] = useState(false);
 	const [abrirComprarRotativo, setAbrirComprarRotativo] = useState(false);
-	// const [veiculos, setVeiculos] = useState(arrayVeiculos);
 
 	const modalCadastrarVeiculo = () => {
 		setAbrirCadastrarVeiculo(!abrirCadastrarVeiculo);
@@ -38,8 +35,6 @@ function Home() {
 	const cadastrarVeiculo = novoVeiculo => {
 		setVeiculos([...veiculos, novoVeiculo]);
 	};
-
-	console.log(veiculos);
 
 	return (
 		<>
