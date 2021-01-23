@@ -88,18 +88,14 @@ export default function Cartao({ veiculo }) {
 				{veiculo.estacionado ? (
 					<>
 						<Grid container justify='space-between' style={{ padding: 10 }}>
-							<Typography variant='caption'>Este veículo tá estacionado</Typography>
+							<Typography variant='caption'>Veiculo estacionado!</Typography>
 							<Countdown date={horarioEstacionamento + 3600000} />
 						</Grid>
 					</>
 				) : saldo.saldo < 4 ? (
-					<Grid container justify='center'>
-						<Alert severity='warning' variant='outlined' color='info'>
-							<AlertTitle>
-								<Typography variant='overline'>Saldo insuficiente</Typography>
-							</AlertTitle>
-						</Alert>
-					</Grid>
+					<Button variant='outlined' fullWidth size='small' color='primary' disabled>
+						Saldo insuficiente
+					</Button>
 				) : (
 					<Button variant='outlined' fullWidth size='small' color='primary' onClick={() => handleEstacionar(veiculo)}>
 						Estacionar
