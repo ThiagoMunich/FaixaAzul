@@ -18,6 +18,7 @@ import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined'
 import SportsMotorsportsOutlinedIcon from '@material-ui/icons/SportsMotorsportsOutlined';
 
 import useMain from '../../../hooks/useMain';
+import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles({
 	root: {
@@ -40,8 +41,11 @@ const useStyles = makeStyles({
 export default function Cartao({ veiculo }) {
 	const classes = useStyles();
 
+	const [horarioEstacionamento, setHorarioEstacionamento] = useState();
+
 	const handleEstacionar = veiculoParaEstacionar => {
 		veiculoParaEstacionar.estacionado = true;
+		setHorarioEstacionamento(Date.now());
 	};
 
 	return (
@@ -78,7 +82,12 @@ export default function Cartao({ veiculo }) {
 			</CardContent>
 			<CardActions>
 				{veiculo.estacionado ? (
-					<h2>estacionar</h2>
+					<>
+						<Grid container justify='space-between' style={{ padding: 10 }}>
+							<Typography variant='caption'>Este veículo tá estacionado</Typography>
+							<Countdown date={horarioEstacionamento + 3600000} />
+						</Grid>
+					</>
 				) : (
 					<Button variant='outlined' fullWidth size='small' color='primary' onClick={handleEstacionar(veiculo)}>
 						Estacionar

@@ -54,7 +54,7 @@ function ModalComprarRotativo({ abrir, fechar }) {
 						</Typography>
 					</DialogContent>
 					<DialogActions>
-						<Button size='small' color='secondary'>
+						<Button size='small' color='secondary' onClick={fechar}>
 							Cancelar
 						</Button>
 						<Button
