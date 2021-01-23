@@ -11,7 +11,6 @@ import IconButton from '@material-ui/core/IconButton';
 
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
-import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 
 import Cartao from './Cartao';
 import ModalComprarRotativo from './ModalComprarRotativo';
@@ -19,14 +18,14 @@ import ModalCadastrarVeiculo from './ModalCadastrarVeiculo';
 
 import { useMain } from '../../hooks/useMain';
 
-const arrayVeiculos = [];
+// const arrayVeiculos = [];
 
 function Home() {
-	const { saldo, setSaldo } = useMain();
+	const { saldo, veiculos, setVeiculos } = useMain();
 
 	const [abrirCadastrarVeiculo, setAbrirCadastrarVeiculo] = useState(false);
 	const [abrirComprarRotativo, setAbrirComprarRotativo] = useState(false);
-	const [veiculos, setVeiculos] = useState(arrayVeiculos);
+	// const [veiculos, setVeiculos] = useState(arrayVeiculos);
 
 	const modalCadastrarVeiculo = () => {
 		setAbrirCadastrarVeiculo(!abrirCadastrarVeiculo);
@@ -39,6 +38,8 @@ function Home() {
 	const cadastrarVeiculo = novoVeiculo => {
 		setVeiculos([...veiculos, novoVeiculo]);
 	};
+
+	console.log(veiculos);
 
 	return (
 		<>
