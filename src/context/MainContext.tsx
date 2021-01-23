@@ -12,6 +12,8 @@ interface IVeiculos {
 
 interface IMainContext {
 	saldo: ISaldo;
+	veiculos: IVeiculos[];
+	setVeiculos: (veiculos: IVeiculos[]) => void;
 	setSaldo: (saldo: ISaldo) => void;
 	tema: 'dark' | 'light';
 	trocarTema: () => void;
@@ -27,6 +29,7 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 	const [tema, setTema] = useState<'dark' | 'light'>('dark');
 
 	const [saldo, setSaldo] = useState<ISaldo>({ saldo: 0.0 } as ISaldo);
+	const [veiculos, setVeiculos] = useState<IVeiculos[]>([]);
 
 	useEffect(() => {
 		if (localStorage.getItem('@FaixaAzul-Tema') !== null) {
@@ -39,7 +42,11 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 		localStorage.setItem('@FaixaAzul-Tema', tema === 'dark' ? 'light' : 'dark');
 	}
 
-	return <MainContext.Provider value={{ saldo, setSaldo, tema, trocarTema }}>{children}</MainContext.Provider>;
+	return (
+		<MainContext.Provider value={{ saldo, setSaldo, veiculos, setVeiculos, tema, trocarTema }}>
+			{children}
+		</MainContext.Provider>
+	);
 };
 
 export default MainProvider;

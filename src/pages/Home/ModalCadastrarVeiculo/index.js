@@ -22,7 +22,7 @@ function ModalCadastrarVeiculo({ abrir, fechar, cadastrar }) {
 
 	const handleCarro = () => {
 		setCarro(true);
-		setTipoVeiculo('Automóvel');
+		setTipoVeiculo('Carro');
 		setTipoIcone(1);
 		setMoto(false);
 		setCaminhao(false);
@@ -38,7 +38,7 @@ function ModalCadastrarVeiculo({ abrir, fechar, cadastrar }) {
 
 	const handleMoto = () => {
 		setMoto(true);
-		setTipoVeiculo('Motofrete C/D');
+		setTipoVeiculo('Moto');
 		setTipoIcone(3);
 		setCarro(false);
 		setCaminhao(false);
