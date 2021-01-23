@@ -89,7 +89,7 @@ export default function Cartao({ veiculo }) {
 						</Grid>
 					</>
 				) : (
-					<Button variant='outlined' fullWidth size='small' color='primary' onClick={handleEstacionar(veiculo)}>
+					<Button variant='outlined' fullWidth size='small' color='primary' onClick={() => handleEstacionar(veiculo)}>
 						Estacionar
 					</Button>
 				)}
