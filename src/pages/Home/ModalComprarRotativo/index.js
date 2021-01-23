@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-import CountUp from 'react-countup';
 import { Chip, Paper, Typography } from '@material-ui/core';
-import { Dialog, DialogActions, DialogTitle, DialogContent, Button } from '@material-ui/core';
+import { Dialog, DialogActions, DialogContent, Button } from '@material-ui/core';
 
 import { useMain } from '../../../hooks/useMain';
 

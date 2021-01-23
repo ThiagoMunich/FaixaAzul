@@ -5,9 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Countdown from 'react-countdown';
 
 import Card from '@material-ui/core/Card';
-
+import Grid from '@material-ui/core/Grid';
+import Alert from '@material-ui/lab/Alert';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
+import AlertTitle from '@material-ui/lab/AlertTitle';
 import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -18,7 +20,6 @@ import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined'
 import SportsMotorsportsOutlinedIcon from '@material-ui/icons/SportsMotorsportsOutlined';
 
 import useMain from '../../../hooks/useMain';
-import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles({
 	root: {
@@ -41,9 +42,12 @@ const useStyles = makeStyles({
 export default function Cartao({ veiculo }) {
 	const classes = useStyles();
 
+	const { saldo, setSaldo } = useMain();
+
 	const [horarioEstacionamento, setHorarioEstacionamento] = useState();
 
 	const handleEstacionar = veiculoParaEstacionar => {
+		setSaldo({ saldo: saldo.saldo - 3.0 });
 		veiculoParaEstacionar.estacionado = true;
 		setHorarioEstacionamento(Date.now());
 	};
@@ -88,6 +92,14 @@ export default function Cartao({ veiculo }) {
 							<Countdown date={horarioEstacionamento + 3600000} />
 						</Grid>
 					</>
+				) : saldo.saldo < 4 ? (
+					<Grid container justify='center'>
+						<Alert severity='warning' variant='outlined' color='info'>
+							<AlertTitle>
+								<Typography variant='overline'>Saldo insuficiente</Typography>
+							</AlertTitle>
+						</Alert>
+					</Grid>
 				) : (
 					<Button variant='outlined' fullWidth size='small' color='primary' onClick={() => handleEstacionar(veiculo)}>
 						Estacionar

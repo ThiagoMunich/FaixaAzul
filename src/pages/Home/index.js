@@ -4,7 +4,6 @@ import CountUp from 'react-countup';
 
 import Grid from '@material-ui/core/Grid';
 import Alert from '@material-ui/lab/Alert';
-import Paper from '@material-ui/core/Paper';
 import AlertTitle from '@material-ui/lab/AlertTitle';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
