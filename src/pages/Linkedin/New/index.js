@@ -38,6 +38,7 @@ function New() {
 				inputMode='numeric'
 				{...getFieldProps('cpfCnpj')}
 			/>
+			<TextField inputMode='numeric' fullWidth />
 		</Grid>
 	);
 }
