@@ -5,6 +5,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import 'fontsource-asap';
 
 import Home from './pages/Home/';
+import Linkedin from './pages/Linkedin/';
 import useMain from './hooks/useMain';
 import Dashboard from './layout/Dashboard';
 
@@ -45,6 +46,7 @@ function Routes() {
 				<BrowserRouter>
 					<Switch>
 						<Route component={Home} exact path='/' />
+						<Route component={Linkedin} exact path='/linkedin' />
 					</Switch>
 				</BrowserRouter>
 			</Dashboard>
