@@ -3,6 +3,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import NumberFormat from 'react-number-format';
 import TextField from '@material-ui/core/TextField';
 
@@ -37,6 +38,9 @@ function New() {
 				inputMode='numeric'
 				{...getFieldProps('cpfCnpj')}
 			/>
+			<Button size='small' onClick={() => history.push('/old')} variant='outlined' style={{ marginTop: 50 }}>
+				UX
+			</Button>
 		</Grid>
 	);
 }

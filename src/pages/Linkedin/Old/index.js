@@ -32,7 +32,7 @@ function Old() {
 				</>
 			)}
 			<Button size='small' onClick={() => history.push('/new')} variant='outlined' style={{ marginTop: 50 }}>
-				UX
+				NON UX
 			</Button>
 		</Grid>
 	);
