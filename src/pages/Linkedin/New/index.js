@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useFormik } from 'formik';
+import { useHistory } from 'react-router-dom';
 
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -8,6 +9,8 @@ import NumberFormat from 'react-number-format';
 import TextField from '@material-ui/core/TextField';
 
 function New() {
+	const history = useHistory();
+
 	const removerFormatacaoCPF = cpf => {
 		if (cpf !== null && cpf !== undefined) return cpf.replace(/\D/g, '');
 		return '';
