@@ -32,9 +32,10 @@ function New() {
 				}
 				format={removerFormatacaoCPF(values.cpfCnpj).length <= 11 ? '###.###.###-###' : '##.###.###/####-##'}
 				fullWidth
-				variant='outlined'
 				margin='dense'
+				variant='outlined'
 				customInput={TextField}
+				inputMode='numeric'
 				{...getFieldProps('cpfCnpj')}
 			/>
 		</Grid>
