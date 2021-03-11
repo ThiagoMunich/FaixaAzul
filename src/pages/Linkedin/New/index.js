@@ -18,8 +18,6 @@ function New() {
 		},
 	});
 
-	console.log(removerFormatacaoCPF(values.cpfCnpj).length);
-
 	return (
 		<Grid container justify='center' alignItems='center'>
 			<NumberFormat
