@@ -23,6 +23,7 @@ function New() {
 	return (
 		<Grid container justify='center' alignItems='center'>
 			<NumberFormat
+				type='tel'
 				label={
 					removerFormatacaoCPF(values.cpfCnpj).length < 11
 						? 'CPF / CNPJ'
@@ -38,7 +39,7 @@ function New() {
 				inputMode='numeric'
 				{...getFieldProps('cpfCnpj')}
 			/>
-			<TextField inputMode='numeric' fullWidth />
+			<TextField type='tel' fullWidth />
 		</Grid>
 	);
 }
