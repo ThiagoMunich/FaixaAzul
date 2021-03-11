@@ -39,7 +39,6 @@ function New() {
 				inputMode='numeric'
 				{...getFieldProps('cpfCnpj')}
 			/>
-			<TextField type='tel' fullWidth />
 		</Grid>
 	);
 }
