@@ -19,8 +19,8 @@ function Old() {
 	return (
 		<Grid container justify='center' alignItems='center'>
 			<TextField select fullWidth label='Selecione...' {...getFieldProps('cpfCnpj')} style={{ marginBottom: 50 }}>
-				<MenuItem value={0}>CPF</MenuItem>
-				<MenuItem value={1}>CNPJ</MenuItem>
+				<MenuItem value={0}>Pessoa Física</MenuItem>
+				<MenuItem value={1}>Pessoa Jurídica</MenuItem>
 			</TextField>
 			{values.cpfCnpj === 0 ? (
 				<>
