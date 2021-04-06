@@ -5,8 +5,6 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import 'fontsource-asap';
 
 import Home from './pages/Home/';
-import Old from './pages/Linkedin/Old';
-import New from './pages/Linkedin/New';
 import useMain from './hooks/useMain';
 import Dashboard from './layout/Dashboard';
 
@@ -47,8 +45,6 @@ function Routes() {
 				<BrowserRouter>
 					<Switch>
 						<Route component={Home} exact path='/' />
-						<Route component={Old} exact path='/old' />
-						<Route component={New} exact path='/new' />
 					</Switch>
 				</BrowserRouter>
 			</Dashboard>
